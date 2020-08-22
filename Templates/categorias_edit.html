@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if form.errors %}
+        <div class="alert alert-warning" role="alert">
+        No se pudo actualizar
+        </div>
+    {% endif %}
+    <h1>Actualizar Categoria</h1>
+    <form action="{% url 'actalizarCategoria' categoria.id %}" method="post">
+    {% csrf_token %}
+    {% if mensaje %}
+    <div class="alert alert-success">
+        {{ mensaje }}
+    </div>
+    {% endif %}
+
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+{% endblock %}

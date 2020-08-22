@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="row">
+    <div class="col-md-10">
+            <h2>Lideres</h2>
+    </div>
+    <div class="col-md-2 justify-content-end">
+        <a href="{% url 'registrarLider' %}" class="btn btn-primary">Registrar</a>
+    </div>
+    </div>
+    <hr>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Lideres</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for lider in lideres %}
+    <tr>
+      <th scope="row">{{ lider.id }}</th>
+      <th >{{ lider.lider }}</th>
+    <th>
+        <a class="btn btn-warning" href="{% url 'editarLider' lider.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'eliminarCategoria' lider.id %}">Eliminar</a>
+    </th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
