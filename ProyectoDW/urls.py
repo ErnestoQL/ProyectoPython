@@ -18,6 +18,7 @@ from django.urls import path
 
 from Models.Categorias.views import CategoriasView
 from Models.Lideres.views import LideresView
+from Models.Proyectos.views import ProyectosView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,4 +37,11 @@ urlpatterns = [
     path('editar-lider/<int:id_lider>', LideresView.edit, name='editarLider'),
     path('actualizar-lider/<int:id_lider>', LideresView.update, name='actalizarLider'),
     path('eliminar-lider/<int:id_lider>', LideresView.delete, name='eliminarLider'),
+
+    path('proyectos/', ProyectosView.index, name='proyectos'),
+    path('registrar-proyecto/', ProyectosView.create, name='registrarProyecto'),
+    path('guardar-proyecto/', ProyectosView.store, name='guardarProyecto'),
+    path('editar-proyecto/<int:id_proyecto>', ProyectosView.edit, name='editarProyecto'),
+    path('actualizar-proyecto/<int:id_proyecto>', ProyectosView.update, name='actalizarProyecto'),
+    path('eliminar-proyecto/<int:id_proyecto>', ProyectosView.delete, name='eliminarProyecto'),
 ]

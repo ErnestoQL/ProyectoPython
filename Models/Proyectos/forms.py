@@ -4,7 +4,7 @@ from django.forms import  DateInput
 from Models.Proyectos.models import Proyectos
 
 
-class formularioProyectos(ModelForm):
+class FormularioProyectos(ModelForm):
     class Meta:
         model = Proyectos
         fields = [

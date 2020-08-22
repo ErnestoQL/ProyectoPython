@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="row">
+    <div class="col-md-10">
+            <h2>Proyectos</h2>
+    </div>
+    <div class="col-md-2 justify-content-end">
+        <a href="{% url 'registrarProyecto' %}" class="btn btn-primary">Registrar</a>
+    </div>
+    </div>
+    <hr>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Programadores</th>
+      <th scope="col">Computadoras</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Lider</th>
+      <th scope="col">Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for proyecto in proyectos %}
+    <tr>
+      <th scope="row">{{ proyecto.id }}</th>
+      <th >{{ proyecto.fecha }}</th>
+      <th >{{ proyecto.programadores }}</th>
+      <th >{{ proyecto.computadoras }}</th>
+      <th >{{ proyecto.estatus }}</th>
+      <th >{{ proyecto.lider_idLider }}</th>
+      <th >{{ proyecto.categoria_idCategoria }}</th>
+    <th>
+        <a class="btn btn-warning" href="{% url 'editarProyecto' proyecto.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'eliminarProyecto' proyecto.id %}">Eliminar</a>
+    </th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
